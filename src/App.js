@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Header from './components/Header/Header';
+import UserList from './components/UserList/UserList';
+import UsersState from './context/UsersState';
+import UserModal from './components/UserModal/UserModal';
+import {useUsersContext} from './context/UsersContext';
+import {useEffect} from 'react';
 
 function App() {
+  const {modalOpened, closeModal, setAllUsers, currentUser} = useUsersContext();
+
+  useEffect(() => {
+    setAllUsers();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+      <UserList/>
+      <UserModal isOpened={modalOpened} closeModal={closeModal} user={currentUser}/>
     </div>
   );
 }
 
-export default App;
+const UserListApp = () => {
+  return (
+    <UsersState>
+      <App/>
+    </UsersState>
+  );
+};
+
+export default UserListApp;

@@ -1,0 +1,9 @@
+.select {
+    border: none;
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+    height: 48px;
+    background: url("./arrow.svg") no-repeat;
+    background-position: right 15px top 50%;
+}

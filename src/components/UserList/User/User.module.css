@@ -1,0 +1,72 @@
+
+.User {
+    display: grid;
+    height: 80px;
+    grid-template-areas: "image fname balance lastC status";
+    grid-template-columns: 80px 155px minmax(120px, auto) auto 222px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.07);
+    background-color: white;
+    margin-bottom: 18px;
+    align-items: center;
+    font-size: 15px;
+}
+
+.avatar {
+    grid-area: image;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 16px;
+    justify-self: start;
+}
+
+.fullname {
+    grid-area: fname;
+    justify-self: start;
+}
+
+.balance {
+    grid-area: balance;
+    justify-self: start;
+}
+
+.lastChanges {
+    grid-area: lastC;
+    justify-self: end;
+    margin-right: 54px;
+}
+
+.status {
+    grid-area: status;
+    background: none;
+    margin-right: 46px;
+    margin-left: 54px;
+    justify-self: end;
+    font-family: inherit;
+    font-size: 15px;
+    width: 176px;
+    z-index: 10;
+}
+
+.status:after
+{
+    content: "";
+    display: inline-block;
+    background: white;
+    position: absolute;
+    right: -5px;
+    top: 2px;
+    z-index: 2;
+    width: 30px;
+    height: 26px;
+    text-align: center;
+    line-height: 26px;
+    border: 2px solid #ddd;
+    transform: rotate(90deg);
+    cursor: pointer;
+}
+
+.status:focus {
+    outline: none;
+}
