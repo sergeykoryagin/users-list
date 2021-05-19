@@ -46,7 +46,6 @@
     font-family: inherit;
     font-size: 15px;
     width: 176px;
-    z-index: 10;
 }
 
 .status:after
@@ -57,7 +56,6 @@
     position: absolute;
     right: -5px;
     top: 2px;
-    z-index: 2;
     width: 30px;
     height: 26px;
     text-align: center;
